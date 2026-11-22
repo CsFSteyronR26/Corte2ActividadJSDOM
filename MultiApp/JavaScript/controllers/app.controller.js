@@ -5,6 +5,11 @@ export class AppController {
 
         this.view.bindSaludar(() => this.manejarSaludo());
         this.view.bindCambiarMensaje(() => this.manejarCambioMensaje());
+        this.view.bindIncrementar(() => this.manejarIncremento());
+        this.view.bindDecrementar(() => this.manejarDecremento());
+        this.view.bindReiniciar(() => this.manejarReinicio());
+        this.view.bindOcultar(() => this.view.ocultarInformacion());
+        this.view.bindMostrar(() => this.view.mostrarInformacion());
     }
 
     manejarSaludo() {
@@ -23,5 +28,20 @@ export class AppController {
         }
 
         this.view.renderizarMensaje(resultado.texto);
+    }
+
+    manejarIncremento() {
+        const nuevoValor = this.model.incrementar();
+        this.view.renderizarContador(nuevoValor);
+    }
+
+    manejarDecremento() {
+        const nuevoValor = this.model.decrementar();
+        this.view.renderizarContador(nuevoValor);
+    }
+
+    manejarReinicio() {
+        const valorReiniciado = this.model.reiniciar();
+        this.view.renderizarContador(valorReiniciado);
     }
 }

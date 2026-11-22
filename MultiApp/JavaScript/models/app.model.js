@@ -1,4 +1,7 @@
 export class AppModel {
+    constructor() {
+        this.contador = 0;
+    }
     validarNombre(nombre) {
         const nombreLimpio = nombre.trim();
 
@@ -17,9 +20,7 @@ export class AppModel {
 
         return { valido: true, texto: mensajeLimpio };
     }
-    constructor() {
-        this.contador = 0;
-    }
+   
     incrementar() {
         this.contador++;
         return this.contador;
